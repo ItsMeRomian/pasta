@@ -23,7 +23,7 @@ export default {
     this.$toast.success('press esc to go back.')
     window.addEventListener('keydown', (key) => {
       if (key.code === 'Escape') {
-        this.$router.push('/new')
+        this.$router.push('/')
       }
     })
   },
