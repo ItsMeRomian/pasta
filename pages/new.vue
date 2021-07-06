@@ -2,7 +2,7 @@
   <div id="new">
     <div id="key">
       <div id="box2">
-        <img src="/save.png" class="save" @click="save()">Save</img>
+        <img src="/save.png" class="save" @click="save()" />
       </div>
     </div>
     <div id="linenos">&gt;</div>
@@ -19,8 +19,8 @@ export default {
     }
   },
   mounted() {
-    this.$toast.success("press esc to go back.")
-     window.addEventListener('keydown', (key) => {
+    this.$toast.success('press esc to go back.')
+    window.addEventListener('keydown', (key) => {
       if (key.code === 'Escape') {
         this.$router.push('/new')
       }

@@ -2,7 +2,7 @@
   <div id="view">
     <div id="key">
       <div id="box2">
-        <img src="/new.png" class="new" @click="openNew()">New</img>
+        <img src="/new.png" class="new" @click="openNew()" />
       </div>
     </div>
     <pre v-if="code !== ''">
@@ -31,9 +31,9 @@ export default {
       if (!error) {
         console.log(data[0].value)
         this.code = data[0].value
-        this.$toast.info(`New pasta made!`);
+        this.$toast.info(`New pasta made!`)
       } else {
-        this.$toast.error("Pasta not found!");
+        this.$toast.error('Pasta not found!')
       }
     },
     openNew() {
