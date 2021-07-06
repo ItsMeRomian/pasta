@@ -7,7 +7,7 @@
       </div>
     </div>
     <pre v-if="code !== ''">
-      <code v-highlight v-bind:class="{ 'no-highlight': isText}">{{code}}</code>
+      <code v-highlight :class="{ 'no-highlight': isText}">{{code}}</code>
     </pre>
   </div>
 </template>
@@ -31,12 +31,12 @@ export default {
     async getPasta() {
       const { data, error } = await this.$supabase.from('paste').select().match({ id: this.value }).limit(1)
       if (!error) {
-        console.log(data[0].value)
         this.code = data[0].value
         this.isText = data[0].isText
         this.$toast.info(`New pasta made!`)
       } else {
         this.$toast.error('Pasta not found!')
+        this.$toast.error(error)
       }
     },
     openNew() {
