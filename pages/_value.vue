@@ -3,6 +3,7 @@
     <div id="key">
       <div id="box2">
         <img src="/new.png" class="new" @click="openNew()" />
+        <img src="/share.png" class="saveAsText" @click="copySomething('https://pasta.dyna.host/' + value)" />
       </div>
     </div>
     <pre v-if="code !== ''">
@@ -40,6 +41,14 @@ export default {
     },
     openNew() {
       this.$router.push('/new')
+    },
+    async copySomething(text) {
+      try {
+        await this.$copyText(text)
+        this.$toast.success('Copied link :)')
+      } catch (e) {
+        this.$toast.error(e)
+      }
     },
   },
 }

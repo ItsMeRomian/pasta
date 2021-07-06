@@ -41,6 +41,7 @@ export default {
       },
     ],
     '@nuxtjs/toast',
+    'nuxt-clipboard',
   ],
 
   toast: {
