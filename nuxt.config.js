@@ -44,8 +44,8 @@ export default {
   ],
 
   toast: {
-    position: 'top-center',
-    duration: 1000,
+    position: 'top-right',
+    duration: 2400,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
