@@ -1,0 +1,44 @@
+<template>
+  <div id="view">
+    <div id="key">
+      <div id="box2">
+        <img src="/new.png" class="new" @click="openNew()">New</img>
+      </div>
+    </div>
+    <pre v-if="code !== ''">
+      <code v-highlight class="">{{code}}</code>
+    </pre>
+  </div>
+</template>
+
+<script>
+export default {
+  asyncData({ params }) {
+    const value = params.value
+    return { value }
+  },
+  data() {
+    return {
+      code: '',
+    }
+  },
+  async mounted() {
+    await this.getPasta()
+  },
+  methods: {
+    async getPasta() {
+      const { data, error } = await this.$supabase.from('paste').select().match({ id: this.value }).limit(1)
+      if (!error) {
+        console.log(data[0].value)
+        this.code = data[0].value
+        this.$toast.info(`New pasta made!`);
+      } else {
+        this.$toast.error("Pasta not found!");
+      }
+    },
+    openNew() {
+      this.$router.push('/new')
+    },
+  },
+}
+</script>
