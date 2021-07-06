@@ -6,7 +6,7 @@
       </div>
     </div>
     <pre v-if="code !== ''">
-      <code v-highlight class="">{{code}}</code>
+      <code v-highlight v-bind:class="{ 'no-highlight': isText}">{{code}}</code>
     </pre>
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       code: '',
+      isText: '',
     }
   },
   async mounted() {
@@ -31,6 +32,7 @@ export default {
       if (!error) {
         console.log(data[0].value)
         this.code = data[0].value
+        this.isText = data[0].isText
         this.$toast.info(`New pasta made!`)
       } else {
         this.$toast.error('Pasta not found!')

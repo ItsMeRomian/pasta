@@ -2,6 +2,12 @@ img {
   width: 2rem;
   cursor: pointer;
 }
+.no-highlight {
+  color: white;
+}
+.saveAsText {
+  margin-left: 0.5rem;
+}
 .madeby {
   color: white;
   background: black;

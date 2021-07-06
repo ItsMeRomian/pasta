@@ -2,7 +2,8 @@
   <div id="new">
     <div id="key">
       <div id="box2">
-        <img src="/save.png" class="save" @click="save()" />
+        <img src="/save.png" class="save" @click="save()" title="Save as code" />
+        <img src="/saveText.png" class="saveAsText" @click="save(true)" title="Save as Text" />
       </div>
     </div>
     <div id="linenos">&gt;</div>
@@ -28,8 +29,8 @@ export default {
   },
 
   methods: {
-    async save() {
-      const { data, error } = await this.$supabase.from('paste').insert([{ value: this.value }])
+    async save(text = false) {
+      const { data, error } = await this.$supabase.from('paste').insert([{ value: this.value, isText: text }])
       console.log(data, error)
       if (!error) {
         this.$toast.success('making new pasta 🍝...')
