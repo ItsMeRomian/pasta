@@ -33,7 +33,6 @@ export default {
       if (!error) {
         this.code = data[0].value
         this.isText = data[0].isText
-        this.$toast.info(`New pasta made!`)
       } else {
         this.$toast.error('Pasta not found!')
         this.$toast.error(error)
@@ -53,3 +52,9 @@ export default {
   },
 }
 </script>
+<style scoped>
+.hljs {
+  white-space: pre;
+  overflow-x: auto;
+}
+</style>

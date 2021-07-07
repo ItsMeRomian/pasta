@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <span class="emoji">🍝</span><br />
-    <span>Press <span class="enter">enter</span> to make new pasta</span>
+    <span>Press <router-link to="/new" class="enter">enter</router-link> to make new pasta</span>
     <div class="made">Made with &hearts; by <a href="https://dynafools.live">ItsMeRomian</a></div>
   </div>
 </template>
@@ -23,6 +23,7 @@ export default {
   background: gray;
   border-radius: 10%;
   padding: 0.1rem;
+  text-decoration: none;
 }
 body {
   padding: 0px 0px !important;

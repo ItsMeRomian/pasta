@@ -33,7 +33,7 @@ export default {
       const { data, error } = await this.$supabase.from('paste').insert([{ value: this.value, isText: text }])
       console.log(data, error)
       if (!error) {
-        this.$toast.success('making new pasta 🍝...')
+        this.$toast.info(`New pasta made!`)
         this.$router.push('/' + data[0].id)
       }
     },
